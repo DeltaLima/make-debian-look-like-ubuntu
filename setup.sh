@@ -60,6 +60,13 @@ then
 fi
 
 message "Continue with installation..."
+
+if ! groups | grep sudo 
+then
+  message error "Your user $USER is not in group 'sudo'."
+  message error "Add your user to the group with: ${YELLOW}su -c usermod -G sudo ${USER}${ENDCOLOR}"
+  error
+fi
 message "check sources.list"
 if ! grep "contrib" /etc/apt/sources.list > /dev/null && grep "non-free" /etc/apt/sources.list > /dev/null
 then
@@ -77,8 +84,9 @@ deb-src http://deb.debian.org/debian/ bookworm-updates main contrib non-free non
 " | sudo tee /etc/apt/sources.list
   message "apt update"
   sudo apt update
-  
 fi
+
+
 # iterate through $packages
 for categorie in $package_categories
 do
