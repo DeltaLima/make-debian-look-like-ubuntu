@@ -89,7 +89,10 @@ do
   # post installation steps for categories
   case $categorie in
     base)
-      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+      sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo || error
+      ;;
+    gnome)
+      sudo flatpak install firefox gradience || error
       ;;
   esac
   

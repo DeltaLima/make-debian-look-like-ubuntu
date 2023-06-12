@@ -13,7 +13,8 @@ gnome-shell-extension-manager gnome-tweaks gnome-shell-extensions
 gnome-shell-extension-desktop-icons-ng gnome-shell-extension-dashtodock
 gnome-shell-extension-appindicator gnome-shell-extension-system-monitor 
 gnome-shell-extension-panel-osd 
-yaru-theme-{gnome-shell,gtk,icon,sound,unity} 
+yaru-theme-gnome-shell yaru-theme-gtk yaru-theme-icon yaru-theme-sound
+yaru-theme-unity
 gnome-software-plugin-flatpak
 brasero
 thunderbird thunderbird-l10n-de"
