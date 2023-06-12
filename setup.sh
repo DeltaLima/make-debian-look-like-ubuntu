@@ -74,6 +74,8 @@ do
       if ! grep "contrib" /etc/apt/sources.list && grep "non-free" /etc/apt/sources.list
         then
           message error "please activate 'contrib' and 'non-free' in your sources.ist"
+          exit 1
+      fi
       ;;
     nice)
       sudo dpkg --add-architecture i386
