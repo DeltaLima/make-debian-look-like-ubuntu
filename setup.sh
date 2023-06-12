@@ -173,6 +173,4 @@ gtk-application-prefer-dark-theme=1" | tee $HOME/.config/gtk-3.0/settings.ini > 
 done
 
 message "${GREEN}DONE!!${ENDCOLOR}"
-message warn "${YELLOW}Rerun this script again after reboot, if this is 
-the first run of it!
-Some extensions etc are only available after a reboot.${ENDCOLOR}"
+message warn "${RED}IMPORTANT!! ${YELLOW}Rerun this script again after a reboot, if this is the first run of it!${ENDCOLOR}"
