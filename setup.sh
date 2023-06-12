@@ -94,13 +94,15 @@ do
       sudo update-grub
       ;;
     gnome)
-       message "add flathub.org flatpak repository"
+      message "add flathub.org flatpak repository"
       sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo || error
       sudo flatpak install org.mozilla.firefox com.github.GradienceTeam.Gradience || error
+      
       message "linking ~/.mozilla to flatpak env"
       mkdir -p $HOME/.mozilla
       mkdir -p $HOME/.var/app/org.mozilla.firefox/
       ln -s $HOME/.mozilla HOME/.var/app/org.mozilla.firefox/.mozilla
+      
       message "placing font fix for firefox flatpak"
       mkdir -p $HOME/.var/app/org.mozilla.firefox/config/fontconfig/
       echo "<?xml version='1.0'?>
@@ -111,9 +113,17 @@ do
         <patelt name="scalable"><bool>false</bool></patelt>
     </pattern></rejectfont></selectfont>
 </fontconfig>" > $HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf
+      
       message "setting gtk legacy default to dark"
+      mkdir -p $HOME/.config/gtk-{3,4}.0
       echo "[Settings]
-gtk-application-prefer-dark-theme=1" | tee ~/.config/gtk-3.0/settings.ini > ~/.config/gtk-4.0/settings.ini
+gtk-application-prefer-dark-theme=1" | tee $HOME/.config/gtk-3.0/settings.ini > $HOME/.config/gtk-4.0/settings.ini
+
+      message "enable gnome shell extensions"
+      for extension in ubuntu-appindicators@ubuntu.com panel-osd@berend.de.schouwer.gmail.com user-theme@gnome-shell-extensions.gcampax.github.com dash-to-dock@micxgx.gmail.com system-monitor@paradoxxx.zero.gmail.com 
+      do 
+       gnome-extension enable $extension
+      done
       ;;
   esac
   

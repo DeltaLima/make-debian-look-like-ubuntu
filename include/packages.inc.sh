@@ -33,6 +33,6 @@ solaar steam-installer"
 packages[game]="openarena"
 
 # ham radio
-packages[ham]="direwolf  gqrx-sdr ax25-tools ax25-apps"
+packages[ham]="direwolf  gqrx-sdr ax25-tools ax25-apps js8call"
 
 packages[lol]="lolcat"
