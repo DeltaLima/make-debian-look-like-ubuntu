@@ -62,17 +62,30 @@ fi
 message "Continue with installation..."
 
 # iterate through $packages
-for i in $package_categories
+for categorie in $package_categories
 do
   message "Packages category: ${YELLOW}${i}${ENDCOLOR}"
   message "Packages contained: "
   message "${GREEN}${packages[$i]}${ENDCOLOR}"
   
-  # in case of a specific category, do special things
-  case $i in
+  # pre installation steps for categories
+  case $categorie in
+    base)
+      if ! grep "contrib" /etc/apt/sources.list && grep "non-free" /etc/apt/sources.list
+        then
+          message error "please activate 'contrib' and 'non-free' in your sources.ist"
+      ;;
     nice)
-      message warn "sudo dpkg --add-architecture i386"
-      message warn "sudo apt update"
+      sudo dpkg --add-architecture i386
+      sudo apt update
       ;;
   esac
+  
+  # post installation steps for categories
+  case $categorie in
+    base)
+      
+      ;;
+  esac
+  
 done

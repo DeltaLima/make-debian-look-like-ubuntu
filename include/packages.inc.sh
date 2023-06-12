@@ -20,7 +20,7 @@ thunderbird thunderbird-l10n-de"
 
 # install admin and dev tools
 packages[admin]="htop iotop sysstat lm-sensors git mc vim btop btrfs-progs 
-curl wget debootstrap geany 'geany-plugin*' lnav mtr-tiny ncdu nmap ppp 
+curl wget debootstrap geany geany-plugins lnav mtr-tiny ncdu nmap ppp 
 pandoc pwgen remmina rsync screen socat stress strace tcpdump ufw"
 
 # install nice programs
