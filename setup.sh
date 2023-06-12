@@ -60,33 +60,36 @@ then
 fi
 
 message "Continue with installation..."
-
+message "check sources.list"
+if ! grep "contrib" /etc/apt/sources.list > /dev/null && grep "non-free" /etc/apt/sources.list > /dev/null
+then
+  message error "please activate 'contrib' and 'non-free' in your sources.ist"
+  exit 1
+fi
 # iterate through $packages
 for categorie in $package_categories
 do
-  message "Packages category: ${YELLOW}${i}${ENDCOLOR}"
+  message "Packages category: ${YELLOW}${categorie}${ENDCOLOR}"
   message "Packages contained: "
-  message "${GREEN}${packages[$i]}${ENDCOLOR}"
+  message "${GREEN}${packages[$categorie]}${ENDCOLOR}"
   
+  message "running pre-tasks"
   # pre installation steps for categories
   case $categorie in
-    base)
-      if ! grep "contrib" /etc/apt/sources.list && grep "non-free" /etc/apt/sources.list
-        then
-          message error "please activate 'contrib' and 'non-free' in your sources.ist"
-          exit 1
-      fi
-      ;;
     nice)
-      sudo dpkg --add-architecture i386
-      sudo apt update
+      sudo dpkg --add-architecture i386 || error
+      sudo apt update || error
       ;;
   esac
   
+  message "installing packages"
+  sudo apt install -y ${packages[$categorie]} || error
+  
+  message "running post-tasks"
   # post installation steps for categories
   case $categorie in
     base)
-      
+      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
       ;;
   esac
   
