@@ -42,6 +42,8 @@ error ()
 
 ###
 
+test "$(whoami)" != "root" || message error "I cannot run as root" ; error
+
 if [ -z "$arguments" ]
 then
   package_categories="${!packages[@]}"
