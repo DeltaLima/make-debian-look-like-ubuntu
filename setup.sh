@@ -146,7 +146,7 @@ gtk-application-prefer-dark-theme=1" | tee $HOME/.config/gtk-3.0/settings.ini > 
       gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/gnome/dune-l.svg'
       gsettings set org.gnome.desktop.background picture-uri-dark 'file:///usr/share/backgrounds/gnome/dune-d.svg'
       gsettings set org.gnome.desktop.background show-desktop-icons true
-      gsettings set org.gnome.desktop.background primary-color '#f7a957'
+      gsettings set org.gnome.desktop.background primary-color '#FF7800'
       gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
       gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:appmenu'
       gsettings set org.gnome.desktop.interface cursor-theme 'Yaru'
