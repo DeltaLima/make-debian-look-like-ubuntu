@@ -124,6 +124,37 @@ gtk-application-prefer-dark-theme=1" | tee $HOME/.config/gtk-3.0/settings.ini > 
       do 
        gnome-extension enable $extension
       done
+      
+      message "set gsettings"
+      # dash-to-dock
+      gsettings set gsettings set org.gnome.shell.extensions.dash-to-dock autohide-in-fullscreen false
+      gsettings set org.gnome.shell.extensions.dash-to-dock autohide-in-fullscreen false
+      gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity 0.64000000000000001
+      gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'focus-or-previews'
+      gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 36
+      gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed true
+      gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'LEFT'
+      gsettings set org.gnome.shell.extensions.dash-to-dock extend-height true
+      gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
+      gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode 'FIXED'
+      
+      # panel-osd
+      gsettings set org.gnome.shell.extensions.panel-osd x-pos 100.0
+      
+      # desktop
+      gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/gnome/dune-l.svg'
+      gsettings set org.gnome.desktop.background picture-uri-dark 'file:///usr/share/backgrounds/gnome/dune-d.svg'
+      gsettings set org.gnome.desktop.background show-desktop-icons true
+      gsettings set org.gnome.desktop.background primary-color '#f7a957'
+      gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+      gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:appmenu'
+      gsettings set org.gnome.desktop.interface cursor-theme 'Yaru'
+      gsettings set org.gnome.desktop.interface enable-hot-corners true
+      gsettings set org.gnome.desktop.interface font-antialiasing 'grayscale'
+      gsettings set org.gnome.desktop.interface font-hinting 'slight'
+      gsettings set org.gnome.desktop.interface font-name 'Ubuntu 11'
+      gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-red-dark'
+      gsettings set org.gnome.desktop.interface icon-theme 'Yaru-red-dark'
       ;;
   esac
   
