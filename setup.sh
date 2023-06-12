@@ -131,6 +131,8 @@ gtk-application-prefer-dark-theme=1" | tee $HOME/.config/gtk-3.0/settings.ini > 
       gnome-extensions enable system-monitor@paradoxxx.zero.gmail.com 
       gnome-extensions enable ding@rastersoft.com
       
+      gsettings set org.gnome.shell disable-user-extensions false
+      
       message "set gsettings"
       # dash-to-dock
       gsettings set org.gnome.shell.extensions.dash-to-dock autohide-in-fullscreen false
