@@ -30,10 +30,10 @@ keepassxc audacious clementine nextcloud-desktop arduino qv4l2 guvcview
 solaar steam-installer"
 
 # install games 
-packages[game]="openarena"
+#packages[game]="openarena"
 
 # ham radio
-packages[ham]="direwolf  gqrx-sdr ax25-tools ax25-apps js8call"
+#packages[ham]="direwolf  gqrx-sdr ax25-tools ax25-apps js8call"
 
 # lol stuff :)
-packages[lol]="lolcat"
+#packages[lol]="lolcat"
