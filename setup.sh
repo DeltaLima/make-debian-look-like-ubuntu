@@ -64,7 +64,8 @@ message "Continue with installation..."
 if ! groups | grep sudo 
 then
   message error "Your user $USER is not in group 'sudo'."
-  message error "Add your user to the group with: ${YELLOW}su -c usermod -G sudo ${USER}${ENDCOLOR}"
+  message error "Add your user to the group with: ${YELLOW}su -c \"usermod -aG sudo ${USER}\"${ENDCOLOR}"
+  message error "after that logout and in or reboot"
   error
 fi
 message "check sources.list"
