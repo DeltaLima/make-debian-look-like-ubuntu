@@ -96,7 +96,11 @@ do
     gnome)
       message "add flathub.org flatpak repository"
       sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo || error
+      
+      message "install firefox flatpak and gradience"
       sudo flatpak install org.mozilla.firefox com.github.GradienceTeam.Gradience || error
+      message "set firefox flatpak to default"
+      xdg-settings set default-web-browser org.mozilla.firefox
       
       message "linking ~/.mozilla to flatpak env"
       mkdir -p $HOME/.mozilla
