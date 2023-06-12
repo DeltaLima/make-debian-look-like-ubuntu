@@ -97,6 +97,23 @@ do
       ;;
     gnome)
       sudo flatpak install org.mozilla.firefox com.github.GradienceTeam.Gradience || error
+      message "linking ~/.mozilla to flatpak env"
+      mkdir -p $HOME/.mozilla
+      mkdir -p $HOME/.var/app/org.mozilla.firefox/
+      ln -s $HOME/.mozilla HOME/.var/app/org.mozilla.firefox/.mozilla
+      message "placing font fix for firefox flatpak"
+      mkdir -p $HOME/.var/app/org.mozilla.firefox/config/fontconfig/
+      echo "<?xml version='1.0'?>
+<!DOCTYPE fontconfig SYSTEM 'fonts.dtd'>
+<fontconfig>
+    <!-- Disable bitmap fonts. -->
+    <selectfont><rejectfont><pattern>
+        <patelt name="scalable"><bool>false</bool></patelt>
+    </pattern></rejectfont></selectfont>
+</fontconfig>" > $HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf
+      message "setting gtk legacy default to dark"
+      echo "[Settings]
+gtk-application-prefer-dark-theme=1" | tee ~/.config/gtk-3.0/settings.ini > ~/.config/gtk-4.0/settings.ini
       ;;
   esac
   
