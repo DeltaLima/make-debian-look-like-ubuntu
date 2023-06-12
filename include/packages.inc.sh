@@ -16,7 +16,7 @@ gnome-shell-extension-panel-osd
 yaru-theme-gnome-shell yaru-theme-gtk yaru-theme-icon yaru-theme-sound
 yaru-theme-unity
 gnome-software-plugin-flatpak
-brasero
+brasero dconf-editor
 thunderbird thunderbird-l10n-de"
 
 # install admin and dev tools

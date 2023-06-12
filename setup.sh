@@ -125,6 +125,7 @@ gtk-application-prefer-dark-theme=1" | tee $HOME/.config/gtk-3.0/settings.ini > 
       gnome-extensions enable user-theme@gnome-shell-extensions.gcampax.github.com
       gnome-extensions enable dash-to-dock@micxgx.gmail.com
       gnome-extensions enable system-monitor@paradoxxx.zero.gmail.com 
+      gnome-extensions enable ding@rastersoft.com
       
       message "set gsettings"
       # dash-to-dock
@@ -137,6 +138,7 @@ gtk-application-prefer-dark-theme=1" | tee $HOME/.config/gtk-3.0/settings.ini > 
       gsettings set org.gnome.shell.extensions.dash-to-dock extend-height true
       gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
       gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode 'FIXED'
+      gsettings set org.gnome.shell.extensions.dash-to-dock running-indicator-style 'DOTS'
       
       # panel-osd
       gsettings set org.gnome.shell.extensions.panel-osd x-pos 100.0
