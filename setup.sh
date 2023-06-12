@@ -120,10 +120,11 @@ do
 gtk-application-prefer-dark-theme=1" | tee $HOME/.config/gtk-3.0/settings.ini > $HOME/.config/gtk-4.0/settings.ini
 
       message "enable gnome shell extensions"
-      for extension in ubuntu-appindicators@ubuntu.com panel-osd@berend.de.schouwer.gmail.com user-theme@gnome-shell-extensions.gcampax.github.com dash-to-dock@micxgx.gmail.com system-monitor@paradoxxx.zero.gmail.com 
-      do 
-       gnome-extension enable $extension
-      done
+      gnome-extension enable ubuntu-appindicators@ubuntu.com
+      gnome-extension enable panel-osd@berend.de.schouwer.gmail.com
+      gnome-extension enable user-theme@gnome-shell-extensions.gcampax.github.com
+      gnome-extension enable dash-to-dock@micxgx.gmail.com
+      gnome-extension enable system-monitor@paradoxxx.zero.gmail.com 
       
       message "set gsettings"
       # dash-to-dock
