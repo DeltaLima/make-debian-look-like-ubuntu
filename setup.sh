@@ -63,8 +63,9 @@ message "Continue with installation..."
 message "check sources.list"
 if ! grep "contrib" /etc/apt/sources.list > /dev/null && grep "non-free" /etc/apt/sources.list > /dev/null
 then
-  message error "please activate 'contrib' and 'non-free' in your sources.ist"
-  exit 1
+  message warn "'contrib' and 'non-free' not in your sources.ist, i will deploy my own"
+  echo "" | sudo tee /etc/apt/sources.list
+  
 fi
 # iterate through $packages
 for categorie in $package_categories
@@ -105,7 +106,7 @@ do
       message "linking ~/.mozilla to flatpak env"
       mkdir -p $HOME/.mozilla
       mkdir -p $HOME/.var/app/org.mozilla.firefox/
-      ln -s $HOME/.mozilla HOME/.var/app/org.mozilla.firefox/.mozilla
+      ln -s $HOME/.mozilla $HOME/.var/app/org.mozilla.firefox/.mozilla
       
       message "placing font fix for firefox flatpak"
       mkdir -p $HOME/.var/app/org.mozilla.firefox/config/fontconfig/
