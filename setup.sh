@@ -92,7 +92,7 @@ do
       sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo || error
       ;;
     gnome)
-      sudo flatpak install firefox gradience || error
+      sudo flatpak install org.mozilla.firefox com.github.GradienceTeam.Gradience || error
       ;;
   esac
   
