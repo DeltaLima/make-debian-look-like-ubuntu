@@ -153,8 +153,8 @@ gtk-application-prefer-dark-theme=1" | tee $HOME/.config/gtk-3.0/settings.ini > 
       gsettings set org.gnome.desktop.interface font-antialiasing 'grayscale'
       gsettings set org.gnome.desktop.interface font-hinting 'slight'
       gsettings set org.gnome.desktop.interface font-name 'Ubuntu 11'
-      gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-red-dark'
-      gsettings set org.gnome.desktop.interface icon-theme 'Yaru-red-dark'
+      gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-dark'
+      gsettings set org.gnome.desktop.interface icon-theme 'Yaru-dark'
       
       # fix big cursor issue in qt apps
       grep "XCURSOR_SIZE" /etc/environment || echo "XCURSOR_SIZE=24" | sudo tee -a /etc/environment
