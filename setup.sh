@@ -128,7 +128,6 @@ gtk-application-prefer-dark-theme=1" | tee $HOME/.config/gtk-3.0/settings.ini > 
       
       message "set gsettings"
       # dash-to-dock
-      gsettings set gsettings set org.gnome.shell.extensions.dash-to-dock autohide-in-fullscreen false
       gsettings set org.gnome.shell.extensions.dash-to-dock autohide-in-fullscreen false
       gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity 0.64000000000000001
       gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'focus-or-previews'
