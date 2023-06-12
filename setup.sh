@@ -89,13 +89,13 @@ do
   # post installation steps for categories
   case $categorie in
     base)
-      message "add flathub.org flatpak repository"
-      sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo || error
       message "sed default grub option"
       sudo sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT=.*$/GRUB_CMDLINE_LINUX_DEFAULT=\"quiet splash mem_sleep_default=deep\"/g' /etc/default/grub || error
       sudo update-grub
       ;;
     gnome)
+       message "add flathub.org flatpak repository"
+      sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo || error
       sudo flatpak install org.mozilla.firefox com.github.GradienceTeam.Gradience || error
       message "linking ~/.mozilla to flatpak env"
       mkdir -p $HOME/.mozilla
