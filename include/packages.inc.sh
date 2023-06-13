@@ -11,7 +11,7 @@ p7zip-full unrar unzip  neofetch ecryptfs-utils curl wget python-is-python3"
 # install desktop base
 packages[1-desktop-base]="ttf-mscorefonts-installer fonts-ubuntu fonts-ubuntu-console fonts-liberation2
 fonts-noto fonts-dejavu fonts-hack
-flatpak flatpak-xdg-utils gnome-software-plugin-flatpak shutter network-manager-openvpn-gnome  brasero
+flatpak flatpak-xdg-utils gnome-software-plugin-flatpak network-manager-openvpn-gnome brasero
 dconf-editor thunderbird"
 
 # install gnome base
@@ -31,7 +31,7 @@ ifstat"
 # install nice programs
 packages[nice]="wine:i386 winetricks chromium dosbox gimp vlc barrier audacity
 keepassxc audacious clementine nextcloud-desktop arduino qv4l2 guvcview
-solaar steam-installer"
+shutter solaar steam-installer"
 
 # you can just add your own packages like shown above and below, just add
 # a new array :)
