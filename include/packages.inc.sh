@@ -11,7 +11,7 @@ p7zip-full unrar unzip  neofetch ecryptfs-utils curl wget python-is-python3"
 # install desktop base
 packages[1-desktop-base]="ttf-mscorefonts-installer fonts-ubuntu fonts-ubuntu-console fonts-liberation2
 fonts-noto fonts-dejavu fonts-hack
-flatpak flatpak-xdg-utils gnome-software-plugin-flatpak shotwell network-manager-openvpn-gnome  brasero
+flatpak flatpak-xdg-utils gnome-software-plugin-flatpak shutter network-manager-openvpn-gnome  brasero
 dconf-editor thunderbird"
 
 # install gnome base
