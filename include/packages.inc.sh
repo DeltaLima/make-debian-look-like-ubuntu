@@ -34,7 +34,7 @@ keepassxc audacious clementine nextcloud-desktop arduino qv4l2 guvcview
 shutter solaar steam-installer"
 
 # you can just add your own packages like shown above and below, just add
-# a new array :)
+# a new array field :)
 
 # install games 
 #packages[game]="openarena"
