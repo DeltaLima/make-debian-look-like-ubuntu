@@ -145,8 +145,10 @@ do
       message "add flathub.org flatpak repository"
       sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo || error
       
-      message "install firefox flatpak and gradience"
-      sudo flatpak install org.mozilla.firefox com.github.GradienceTeam.Gradience || error
+      # here was also com.github.GradienceTeam.Gradience included installed, but not needed
+      # anymore - i found the relevant ~/.config/gtk-{3,4}.0/gtk.css file ;) 
+      message "install firefox flatpak"
+      sudo flatpak install org.mozilla.firefox || error
       message "set firefox flatpak to default"
       xdg-settings set default-web-browser org.mozilla.firefox.desktop 
       
