@@ -168,12 +168,6 @@ do
 </fontconfig>
 EOF
       
-      message "setting gtk legacy default to dark"
-      mkdir -p $HOME/.config/gtk-{3,4}.0
-      cat << EOF | tee $HOME/.config/gtk-3.0/settings.ini > $HOME/.config/gtk-4.0/settings.ini
-[Settings]
-gtk-application-prefer-dark-theme=1
-EOF
       # fix big cursor issue in qt apps
       message "Set XCURSOR_SIZE=24 in /etc/environment to fix Big cursor bug in QT"
       grep "XCURSOR_SIZE" /etc/environment || echo "XCURSOR_SIZE=24" | sudo tee -a /etc/environment > /dev/null
@@ -225,6 +219,21 @@ EOF
       gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-dark'
       gsettings set org.gnome.desktop.interface icon-theme 'Yaru-dark'
       gsettings set org.gnome.shell.extensions.user-theme name 'Yaru-dark'
+
+      # gtk-3.0 and gtk-4.0 settings
+      message "setting gtk-3.0 and gtk-4.0 default to dark"
+      mkdir -p $HOME/.config/gtk-{3,4}.0
+      cat << EOF | tee $HOME/.config/gtk-3.0/settings.ini > $HOME/.config/gtk-4.0/settings.ini
+[Settings]
+gtk-application-prefer-dark-theme=1
+EOF
+
+      # apply adwaita gtk-3.0 and gtk-4.0 orange theming
+      cat << EOF | tee $HOME/.config/gtk-3.0/gtk.css > $HOME/.config/gtk-4.0/gtk.css
+@define-color accent_color #ffbe6f;
+@define-color accent_bg_color #e66100;
+@define-color accent_fg_color #ffffff;
+EOF
 
       # replace firefox-esr with flatpak in dock
       message "replace firefox-esr with flatpak in dock"
