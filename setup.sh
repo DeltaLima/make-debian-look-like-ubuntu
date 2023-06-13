@@ -90,11 +90,11 @@ fi
 message "check sources.list"
 if ! ( ( grep "contrib" /etc/apt/sources.list > /dev/null ) && ( grep -E " non-free( |$)" /etc/apt/sources.list > /dev/null ) )
 then
-  message warn "I need 'contrib' and 'non-free' in sources.ist, i will deploy my own"
+  message warn "I need 'contrib' and 'non-free' in sources.ist, I will deploy my own"
   confirm_continue
   message "backup old sources.list to /etc/apt/sources.list.bak"
   sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
-  cat << EOF > /etc/apt/sources.list
+  cat << EOF | sudo tee /etc/apt/sources.list
 deb http://deb.debian.org/debian/ bookworm main contrib non-free non-free-firmware
 deb-src http://deb.debian.org/debian/ bookworm main contrib non-free non-free-firmware
 
