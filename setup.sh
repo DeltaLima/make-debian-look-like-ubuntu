@@ -40,6 +40,17 @@ error ()
   exit 1
 }
 
+confirm_continue()
+{
+  message warn "Type '${GREEN}yes${ENDCOLOR}' and hit [ENTER] to continue"
+  read -p "=> " continue
+  if [ "$continue" != "yes" ] 
+  then
+    message error "Installation aborted."
+    exit 1
+  fi
+}
+
 ###
 
 if [ "$(whoami)" == "root" ]
@@ -56,13 +67,7 @@ fi
 
 message warn "Do you want to install these categories?"
 message warn "${YELLOW}$package_categories${ENDCOLOR}"
-message warn "Type '${GREEN}yes${ENDCOLOR}' and hit [ENTER] to continue"
-read -p "=> " continue
-if [ "$continue" != "yes" ] 
-then
-  message error "Installation aborted."
-  exit 1
-fi
+confirm_continue
 
 message "Continue with installation..."
 
@@ -70,13 +75,16 @@ if ! groups | grep sudo
 then
   message error "Your user $USER is not in group 'sudo'."
   message error "Add your user to the group with: ${YELLOW}su -c \"usermod -aG sudo ${USER}\"${ENDCOLOR}"
-  message error "after that logout and in or reboot"
+  message error "after that logout and in again or reboot"
   error
 fi
 message "check sources.list"
 if ! grep "contrib" /etc/apt/sources.list > /dev/null && grep "non-free" /etc/apt/sources.list > /dev/null
 then
   message warn "'contrib' and 'non-free' not in your sources.ist, i will deploy my own"
+  confirm_continue
+  message "backup old sources.list"
+  sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
   echo "deb http://deb.debian.org/debian/ bookworm main contrib non-free non-free-firmware
 deb-src http://deb.debian.org/debian/ bookworm main contrib non-free non-free-firmware
 
