@@ -26,7 +26,7 @@ yaru-theme-unity"
 packages[admin]="htop iotop sysstat lm-sensors git mc vim btop btrfs-progs 
 debootstrap geany geany-plugins lnav mtr-tiny ncdu nmap ppp borgbackup borgmatic
 pandoc pwgen remmina rsync screen socat stress strace tcpdump ufw colordiff
-ansible ifstat"
+ifstat"
 
 # install nice programs
 packages[nice]="wine:i386 winetricks chromium dosbox gimp vlc barrier audacity
