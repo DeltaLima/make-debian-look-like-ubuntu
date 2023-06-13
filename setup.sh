@@ -42,7 +42,7 @@ error ()
 
 ###
 
-if [ "$(whoami)" != "root" ]
+if [ "$(whoami)" == "root" ]
 then message error "I cannot run as root"
 error
 fi
