@@ -27,7 +27,8 @@ lightdm-settings lightdm-gtk-greeter-settings"
 # install admin and dev tools
 packages[admin]="htop iotop sysstat lm-sensors git mc vim btop btrfs-progs 
 curl wget debootstrap geany geany-plugins lnav mtr-tiny ncdu nmap ppp 
-pandoc pwgen remmina rsync screen socat stress strace tcpdump ufw borgbackup borgmatic colordiff"
+pandoc pwgen remmina rsync screen socat stress strace tcpdump ufw borgbackup borgmatic colordiff
+ansible"
 
 # install nice programs
 packages[nice]="wine:i386 winetricks chromium dosbox gimp vlc barrier audacity
