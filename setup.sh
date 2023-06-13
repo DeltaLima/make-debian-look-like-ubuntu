@@ -71,7 +71,7 @@ confirm_continue
 
 message "Continue with installation..."
 
-if ! groups | grep sudo 
+if ! groups | grep sudo > /dev/null
 then
   message error "Your user $USER is not in group 'sudo'."
   message error "Add your user to the group with: ${YELLOW}su -c \"usermod -aG sudo ${USER}\"${ENDCOLOR}"
@@ -79,7 +79,7 @@ then
   error
 fi
 message "check sources.list"
-if ! grep "contrib" /etc/apt/sources.list > /dev/null && grep "non-free" /etc/apt/sources.list > /dev/null
+if ( ! grep "contrib" /etc/apt/sources.list > /dev/null ) && ( ! grep "non-free" /etc/apt/sources.list > /dev/null )
 then
   message warn "'contrib' and 'non-free' not in your sources.ist, i will deploy my own"
   confirm_continue
