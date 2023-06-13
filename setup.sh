@@ -219,7 +219,7 @@ EOF
       gsettings set org.gnome.desktop.interface font-name 'Ubuntu 11'
       gsettings set org.gnome.desktop.interface monospace-font-name 'Ubuntu Mono 13'
       gsettings set org.gnome.desktop.interface document-font-name 'Sans 11'
-      gsettings set org.gnome.desktop.wm.preferences titlebar-font='Ubuntu Bold 11'
+      gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Ubuntu Bold 11'
       gsettings set org.gnome.desktop.interface cursor-theme 'Yaru'
       gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-dark'
       gsettings set org.gnome.desktop.interface icon-theme 'Yaru-dark'
