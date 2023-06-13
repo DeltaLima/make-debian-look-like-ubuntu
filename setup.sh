@@ -217,13 +217,14 @@ EOF
       gsettings set org.gnome.desktop.background primary-color '#E66100'
       gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
       gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:appmenu'
-      gsettings set org.gnome.desktop.interface cursor-theme 'Yaru'
       gsettings set org.gnome.desktop.interface enable-hot-corners true
       gsettings set org.gnome.desktop.interface font-antialiasing 'grayscale'
       gsettings set org.gnome.desktop.interface font-hinting 'slight'
       gsettings set org.gnome.desktop.interface font-name 'Ubuntu 11'
+      gsettings set org.gnome.desktop.interface cursor-theme 'Yaru'
       gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-dark'
       gsettings set org.gnome.desktop.interface icon-theme 'Yaru-dark'
+      gsettings set org.gnome.shell.extensions.user-theme name 'Yaru-dark'
       
       ;;
   esac
