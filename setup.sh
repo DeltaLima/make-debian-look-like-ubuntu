@@ -42,7 +42,10 @@ error ()
 
 ###
 
-test "$(whoami)" != "root" || message error "I cannot run as root" ; error
+if [ "$(whoami)" != "root" ]
+then message error "I cannot run as root"
+error
+fi
 
 if [ -z "$arguments" ]
 then
