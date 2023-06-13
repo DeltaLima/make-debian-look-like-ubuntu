@@ -118,6 +118,7 @@ do
       ;;
   esac
   
+  # package installation
   message "installing packages"
   sudo apt install -y ${packages[$categorie]} || error
   
@@ -129,7 +130,8 @@ do
       sudo sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT=.*$/GRUB_CMDLINE_LINUX_DEFAULT=\"quiet splash mem_sleep_default=deep\"/g' /etc/default/grub || error
       sudo update-grub
       ;;
-    gnome)
+
+    desktop-base)
       message "add flathub.org flatpak repository"
       sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo || error
       
@@ -145,20 +147,24 @@ do
       
       message "placing font fix for firefox flatpak"
       mkdir -p $HOME/.var/app/org.mozilla.firefox/config/fontconfig/
-      echo "<?xml version='1.0'?>
+      cat << EOF > $HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf
+<?xml version='1.0'?>
 <!DOCTYPE fontconfig SYSTEM 'fonts.dtd'>
 <fontconfig>
     <!-- Disable bitmap fonts. -->
     <selectfont><rejectfont><pattern>
         <patelt name="scalable"><bool>false</bool></patelt>
     </pattern></rejectfont></selectfont>
-</fontconfig>" > $HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf
+</fontconfig>
+EOF
       
       message "setting gtk legacy default to dark"
       mkdir -p $HOME/.config/gtk-{3,4}.0
       echo "[Settings]
-gtk-application-prefer-dark-theme=1" | tee $HOME/.config/gtk-3.0/settings.ini > $HOME/.config/gtk-4.0/settings.ini
+gtk-application-prefer-dark-theme=1" | tee $HOME/.config/gtk-3.0/settings.ini > $HOME/.config/gtk-4.0/settings.ini    
+      ;;
 
+    gnome)
       message "enable gnome shell extensions"
       gnome-extensions enable ubuntu-appindicators@ubuntu.com
       gnome-extensions enable panel-osd@berend.de.schouwer.gmail.com
