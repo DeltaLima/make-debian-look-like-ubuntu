@@ -1,4 +1,4 @@
-Script for setting up a Debian Gnome Desktop System, I like. Make the system appeareance more "ubuntuuish" for the executing user. With firefox flatpak as default browser for the user.
+Script for setting up a Debian Gnome Desktop System, I like. Make the system appeareance more "ubuntuish" for the executing user. With firefox flatpak as default browser for the user.
 
 After the first run of setup.sh, you have to reboot and re-run the script.
 
