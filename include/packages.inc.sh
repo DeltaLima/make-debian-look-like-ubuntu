@@ -6,7 +6,7 @@ declare -A packages
 
 # install base desktop stuff
 packages[0-base]="linux-headers-amd64 plymouth build-essential
-p7zip-full unrar unzip  neofetch ecryptfs-utils curl wget" 
+p7zip-full unrar unzip  neofetch ecryptfs-utils curl wget python-is-python3" 
 
 # install desktop base
 packages[1-desktop-base]="ttf-mscorefonts-installer fonts-ubuntu fonts-ubuntu-console fonts-liberation2
