@@ -74,7 +74,8 @@ message "Continue with installation..."
 if ! groups | grep sudo > /dev/null
 then
   message error "Your user $USER is not in group 'sudo'."
-  message error "Add your user to the group with: ${YELLOW}su -c \"/usr/sbin/usermod -aG sudo ${USER}\"${ENDCOLOR}"
+  message error "Add your user to the group with:"
+  message error " ${YELLOW}su -c \"/usr/sbin/usermod -aG sudo ${USER}\"${ENDCOLOR}"
   message error "after that logout and in again or reboot"
   error
 fi
