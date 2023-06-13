@@ -65,8 +65,16 @@ else
   package_categories="$@"
 fi
 
-message warn "Do you want to install these categories?"
-message warn "${YELLOW}$package_categories${ENDCOLOR}"
+# sort the category list, some of them have to be in order
+package_categories="$(echo $package_categories | xargs -n1 | sort | xargs)"
+
+message "This script makes a fresh Debian-Gnome installation more 'ubuntuish'"
+message "look'n'feel for the current running user ($USER)."
+message ""
+message "Do you want to install these package categories?"
+message "${YELLOW}$package_categories${ENDCOLOR}"
+message "You can also specify only a few to install, e.g. '${YELLOW}0-base admin${ENDCOLOR}':"
+message "./$0 0-base admin"
 confirm_continue
 
 message "Continue with installation..."
@@ -103,62 +111,77 @@ fi
 
 
 # iterate through $packages
-for categorie in $package_categories
+for category in $package_categories
 do
-  message "Packages category: ${YELLOW}${categorie}${ENDCOLOR}"
+  message "Packages category: ${YELLOW}${category}${ENDCOLOR}"
   message "Packages contained: "
-  message "${GREEN}${packages[$categorie]}${ENDCOLOR}"
+  message "${GREEN}${packages[$category]}${ENDCOLOR}"
   
   message "running pre-tasks"
   # pre installation steps for categories
-  case $categorie in
+  case $category in
     nice)
       sudo dpkg --add-architecture i386 || error
       sudo apt update || error
       ;;
   esac
   
+  # package installation #
   message "installing packages"
-  sudo apt install -y ${packages[$categorie]} || error
+  sudo apt install -y ${packages[$category]} || error
   
   message "running post-tasks"
   # post installation steps for categories
-  case $categorie in
-    base)
+  case $category in
+    0-base)
       message "sed default grub option"
       sudo sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT=.*$/GRUB_CMDLINE_LINUX_DEFAULT=\"quiet splash mem_sleep_default=deep\"/g' /etc/default/grub || error
       sudo update-grub
       ;;
-    gnome)
+
+    1-desktop-base)
       message "add flathub.org flatpak repository"
       sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo || error
       
       message "install firefox flatpak and gradience"
       sudo flatpak install org.mozilla.firefox com.github.GradienceTeam.Gradience || error
       message "set firefox flatpak to default"
-      xdg-settings set default-web-browser org.mozilla.firefox
+      xdg-settings set default-web-browser org.mozilla.firefox.desktop 
       
       message "linking ~/.mozilla to flatpak env"
       mkdir -p $HOME/.mozilla
       mkdir -p $HOME/.var/app/org.mozilla.firefox/
       ln -s $HOME/.mozilla $HOME/.var/app/org.mozilla.firefox/.mozilla
       
-      message "placing font fix for firefox flatpak"
+      message "apply font fix for firefox flatpak"
       mkdir -p $HOME/.var/app/org.mozilla.firefox/config/fontconfig/
-      echo "<?xml version='1.0'?>
+      cat << EOF > $HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf
+<?xml version='1.0'?>
 <!DOCTYPE fontconfig SYSTEM 'fonts.dtd'>
 <fontconfig>
     <!-- Disable bitmap fonts. -->
     <selectfont><rejectfont><pattern>
         <patelt name="scalable"><bool>false</bool></patelt>
     </pattern></rejectfont></selectfont>
-</fontconfig>" > $HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf
+</fontconfig>
+EOF
       
       message "setting gtk legacy default to dark"
       mkdir -p $HOME/.config/gtk-{3,4}.0
-      echo "[Settings]
-gtk-application-prefer-dark-theme=1" | tee $HOME/.config/gtk-3.0/settings.ini > $HOME/.config/gtk-4.0/settings.ini
+      cat << EOF | tee $HOME/.config/gtk-3.0/settings.ini > $HOME/.config/gtk-4.0/settings.ini
+[Settings]
+gtk-application-prefer-dark-theme=1
+EOF
+      # fix big cursor issue in qt apps
+      message "Set XCURSOR_SIZE=24 in /etc/environment to fix Big cursor bug in QT"
+      grep "XCURSOR_SIZE" /etc/environment || echo "XCURSOR_SIZE=24" | sudo tee -a /etc/environment > /dev/null
+      ;;
 
+    2-desktop-gnome)
+    
+      message "allow user-extensions"
+      gsettings set org.gnome.shell disable-user-extensions false
+      
       message "enable gnome shell extensions"
       gnome-extensions enable ubuntu-appindicators@ubuntu.com
       gnome-extensions enable panel-osd@berend.de.schouwer.gmail.com
@@ -167,9 +190,7 @@ gtk-application-prefer-dark-theme=1" | tee $HOME/.config/gtk-3.0/settings.ini > 
       gnome-extensions enable system-monitor@paradoxxx.zero.gmail.com 
       gnome-extensions enable ding@rastersoft.com
       
-      gsettings set org.gnome.shell disable-user-extensions false
-      
-      message "set gsettings"
+      message "apply settings for dash-to-dock"
       # dash-to-dock
       gsettings set org.gnome.shell.extensions.dash-to-dock autohide-in-fullscreen false
       gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity 0.64000000000000001
@@ -182,9 +203,11 @@ gtk-application-prefer-dark-theme=1" | tee $HOME/.config/gtk-3.0/settings.ini > 
       gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode 'FIXED'
       gsettings set org.gnome.shell.extensions.dash-to-dock running-indicator-style 'DOTS'
       
+      message "apply settings for panel-osd"
       # panel-osd
       gsettings set org.gnome.shell.extensions.panel-osd x-pos 100.0
       
+      message "apply settings for gnome desktop"
       # desktop
       gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/gnome/dune-l.svg'
       gsettings set org.gnome.desktop.background picture-uri-dark 'file:///usr/share/backgrounds/gnome/dune-d.svg'
@@ -200,8 +223,6 @@ gtk-application-prefer-dark-theme=1" | tee $HOME/.config/gtk-3.0/settings.ini > 
       gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-dark'
       gsettings set org.gnome.desktop.interface icon-theme 'Yaru-dark'
       
-      # fix big cursor issue in qt apps
-      grep "XCURSOR_SIZE" /etc/environment || echo "XCURSOR_SIZE=24" | sudo tee -a /etc/environment
       ;;
   esac
   
