@@ -15,8 +15,7 @@ flatpak flatpak-xdg-utils gnome-software-plugin-flatpak shutter network-manager-
 dconf-editor thunderbird"
 
 # install gnome base
-packages[2-desktop-gnome]="task-gnome-desktop task-german-desktop 
-gnome-shell-extension-manager gnome-tweaks gnome-shell-extensions 
+packages[2-desktop-gnome]="gnome-shell-extension-manager gnome-tweaks gnome-shell-extensions 
 gnome-shell-extension-desktop-icons-ng gnome-shell-extension-dashtodock
 gnome-shell-extension-appindicator gnome-shell-extension-system-monitor 
 gnome-shell-extension-panel-osd 
