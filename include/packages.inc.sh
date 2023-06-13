@@ -6,7 +6,7 @@ declare -A packages
 
 # install base desktop stuff
 packages[0-base]="linux-headers-amd64 plymouth build-essential
-p7zip-full unrar unzip  neofetch ecryptfs-utils" 
+p7zip-full unrar unzip  neofetch ecryptfs-utils curl wget" 
 
 # install desktop base
 packages[1-desktop-base]="ttf-mscorefonts-installer fonts-ubuntu fonts-ubuntu-console fonts-liberation2
@@ -25,9 +25,9 @@ yaru-theme-unity"
 
 # install admin and dev tools
 packages[admin]="htop iotop sysstat lm-sensors git mc vim btop btrfs-progs 
-curl wget debootstrap geany geany-plugins lnav mtr-tiny ncdu nmap ppp 
-pandoc pwgen remmina rsync screen socat stress strace tcpdump ufw borgbackup borgmatic colordiff
-ansible"
+debootstrap geany geany-plugins lnav mtr-tiny ncdu nmap ppp borgbackup borgmatic
+pandoc pwgen remmina rsync screen socat stress strace tcpdump ufw colordiff
+ansible ifstat"
 
 # install nice programs
 packages[nice]="wine:i386 winetricks chromium dosbox gimp vlc barrier audacity
