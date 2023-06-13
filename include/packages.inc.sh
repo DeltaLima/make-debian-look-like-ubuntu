@@ -21,7 +21,7 @@ gnome-software-plugin-flatpak
 brasero dconf-editor network-manager-openvpn-gnome
 thunderbird thunderbird-l10n-de"
 
-packages[xfce]="gnome-keyring seahorse mugshot elementary-xfce-icon-theme 
+packages[xfce]="gnome-keyring seahorse python3-keyring mugshot elementary-xfce-icon-theme 
 lightdm-settings lightdm-gtk-greeter-settings"
 
 # install admin and dev tools
