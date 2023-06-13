@@ -230,7 +230,8 @@ EOF
 gtk-application-prefer-dark-theme=1
 EOF
 
-      # apply adwaita gtk-3.0 and gtk-4.0 orange theming
+      # apply adwaita gtk-3.0 and gtk-4.0 orange accent color
+      message "setting gtk-3.0 and gtk-4.0 accent color to orange"
       cat << EOF | tee $HOME/.config/gtk-3.0/gtk.css > $HOME/.config/gtk-4.0/gtk.css
 @define-color accent_color #ffbe6f;
 @define-color accent_bg_color #e66100;
