@@ -164,7 +164,7 @@ EOF
 gtk-application-prefer-dark-theme=1" | tee $HOME/.config/gtk-3.0/settings.ini > $HOME/.config/gtk-4.0/settings.ini    
       ;;
 
-    gnome)
+    desktop-gnome)
       message "enable gnome shell extensions"
       gnome-extensions enable ubuntu-appindicators@ubuntu.com
       gnome-extensions enable panel-osd@berend.de.schouwer.gmail.com
