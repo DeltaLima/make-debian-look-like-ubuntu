@@ -225,7 +225,14 @@ EOF
       gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-dark'
       gsettings set org.gnome.desktop.interface icon-theme 'Yaru-dark'
       gsettings set org.gnome.shell.extensions.user-theme name 'Yaru-dark'
-      
+
+      # replace firefox-esr with flatpak in dock
+      message "replace firefox-esr with flatpak in dock"
+      gsettings set org.gnome.shell favorite-apps "$(gsettings get  org.gnome.shell favorite-apps  | sed 's/firefox-esr\.desktop/org\.mozilla\.firefox\.desktop/')"
+
+      # replace evolution with thunderbird in dock
+      message "replace evolution with thunderbird in dock"
+      gsettings set org.gnome.shell favorite-apps "$(gsettings get  org.gnome.shell favorite-apps  | sed 's/org\.gnome\.Evolution\.desktop/thunderbird\.desktop/')"
       ;;
   esac
   
