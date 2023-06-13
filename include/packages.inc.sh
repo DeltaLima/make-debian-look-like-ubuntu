@@ -10,7 +10,7 @@ p7zip-full unrar unzip  neofetch ecryptfs-utils curl wget"
 
 # install desktop base
 packages[1-desktop-base]="ttf-mscorefonts-installer fonts-ubuntu fonts-ubuntu-console fonts-liberation2
-fonts-noto-core fonts-noto-extra fonts-noto-ui-core fonts-noto-ui-extra fonts-dejavu fonts-hack
+fonts-noto fonts-dejavu fonts-hack
 flatpak flatpak-xdg-utils gnome-software-plugin-flatpak shotwell network-manager-openvpn-gnome  brasero
 dconf-editor thunderbird"
 
