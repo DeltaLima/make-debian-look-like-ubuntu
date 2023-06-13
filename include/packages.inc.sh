@@ -3,25 +3,25 @@
 declare -A packages
 
 # install base desktop stuff
-packages[base]="ttf-mscorefonts-installer fonts-ubuntu fonts-ubuntu-console fonts-liberation2
-fonts-noto-core fonts-noto-extra fonts-noto-ui-core fonts-noto-ui-extra 
-fonts-dejavu fonts-hack 
-flatpak flatpak-xdg-utils linux-headers-amd64 plymouth build-essential
-p7zip-full unrar unzip shotwell neofetch ecryptfs-utils" 
+packages[base]="linux-headers-amd64 plymouth build-essential
+p7zip-full unrar unzip  neofetch ecryptfs-utils" 
+
+# install desktop base
+packages[desktop-base]="ttf-mscorefonts-installer fonts-ubuntu fonts-ubuntu-console fonts-liberation2
+fonts-noto-core fonts-noto-extra fonts-noto-ui-core fonts-noto-ui-extra fonts-dejavu fonts-hack
+flatpak flatpak-xdg-utils shotwell network-manager-openvpn-gnome gnome-software-plugin-flatpak brasero
+dconf-editor thunderbird thunderbird-l10n-de"
 
 # install gnome base
-packages[gnome]="task-gnome-desktop task-german-desktop 
+packages[desktop-gnome]="task-gnome-desktop task-german-desktop 
 gnome-shell-extension-manager gnome-tweaks gnome-shell-extensions 
 gnome-shell-extension-desktop-icons-ng gnome-shell-extension-dashtodock
 gnome-shell-extension-appindicator gnome-shell-extension-system-monitor 
 gnome-shell-extension-panel-osd 
 yaru-theme-gnome-shell yaru-theme-gtk yaru-theme-icon yaru-theme-sound
-yaru-theme-unity
-gnome-software-plugin-flatpak
-brasero dconf-editor network-manager-openvpn-gnome
-thunderbird thunderbird-l10n-de"
+yaru-theme-unity"
 
-packages[xfce]="gnome-keyring seahorse python3-keyring mugshot elementary-xfce-icon-theme 
+packages[desktop-xfce]="gnome-keyring seahorse python3-keyring mugshot elementary-xfce-icon-theme 
 lightdm-settings lightdm-gtk-greeter-settings"
 
 # install admin and dev tools
