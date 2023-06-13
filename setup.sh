@@ -228,10 +228,12 @@ EOF
 
       # replace firefox-esr with flatpak in dock
       message "replace firefox-esr with flatpak in dock"
+      gsettings get org.gnome.shell favorite-apps | grep "org.mozilla.firefox.desktop" > /dev/null ||
       gsettings set org.gnome.shell favorite-apps "$(gsettings get  org.gnome.shell favorite-apps  | sed 's/firefox-esr\.desktop/org\.mozilla\.firefox\.desktop/')"
 
       # replace evolution with thunderbird in dock
       message "replace evolution with thunderbird in dock"
+      gsettings get org.gnome.shell favorite-apps | grep "thunderbird.desktop" > /dev/null ||
       gsettings set org.gnome.shell favorite-apps "$(gsettings get  org.gnome.shell favorite-apps  | sed 's/org\.gnome\.Evolution\.desktop/thunderbird\.desktop/')"
       ;;
   esac
