@@ -235,6 +235,11 @@ EOF
       message "replace evolution with thunderbird in dock"
       gsettings get org.gnome.shell favorite-apps | grep "thunderbird.desktop" > /dev/null ||
       gsettings set org.gnome.shell favorite-apps "$(gsettings get  org.gnome.shell favorite-apps  | sed 's/org\.gnome\.Evolution\.desktop/thunderbird\.desktop/')"
+
+      # replace yelp with settings in dock
+      message "replace yelp with settings in dock"
+      gsettings get org.gnome.shell favorite-apps | grep "org.gnome.Settings.desktop" > /dev/null ||
+      gsettings set org.gnome.shell favorite-apps "$(gsettings get  org.gnome.shell favorite-apps  | sed 's/yelp\.desktop/org\.gnome\.Settings\.desktop/')"
       ;;
   esac
   
