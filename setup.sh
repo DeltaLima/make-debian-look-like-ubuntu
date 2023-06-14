@@ -74,7 +74,7 @@ message ""
 message "Do you want to install these package categories?"
 message "${YELLOW}$package_categories${ENDCOLOR}"
 message "You can also specify only a few to install, e.g. '${YELLOW}0-base admin${ENDCOLOR}':"
-message "./$0 0-base admin"
+message " ${YELLOW}bash $0 0-base 1-desktop-base 2-desktop-gnome${ENDCOLOR}"
 confirm_continue
 
 message "Continue with installation..."
@@ -93,7 +93,7 @@ then
   message warn "I need 'contrib' and 'non-free' in sources.ist, I will deploy my own"
   confirm_continue
   message "backup old sources.list to /etc/apt/sources.list.bak"
-  sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+  sudo cp /etc/apt/sources.list /etc/apt/sources.list.$(date "+%s")bak
   cat << EOF | sudo tee /etc/apt/sources.list
 deb http://deb.debian.org/debian/ bookworm main contrib non-free non-free-firmware
 deb-src http://deb.debian.org/debian/ bookworm main contrib non-free non-free-firmware
