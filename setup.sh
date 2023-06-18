@@ -193,7 +193,8 @@ EOF
       gsettings set org.gnome.shell.extensions.dash-to-dock autohide-in-fullscreen false
       gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity 0.64000000000000001
       gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'focus-or-previews'
-      gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 36
+      gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-shrink true
+      gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 42
       gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed true
       gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'LEFT'
       gsettings set org.gnome.shell.extensions.dash-to-dock extend-height true
