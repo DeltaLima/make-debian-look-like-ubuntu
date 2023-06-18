@@ -30,7 +30,7 @@ ifstat"
 
 # install nice programs
 packages[nice]="wine:i386 winetricks chromium dosbox gimp vlc barrier audacity
-keepassxc audacious clementine nextcloud-desktop arduino qv4l2 guvcview
+keepassxc audacious clementine nextcloud-desktop qv4l2 guvcview
 shutter solaar steam-installer"
 
 # you can just add your own packages like shown above and below, just add
