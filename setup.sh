@@ -201,6 +201,7 @@ EOF
       gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
       gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode 'FIXED'
       gsettings set org.gnome.shell.extensions.dash-to-dock running-indicator-style 'DOTS'
+      gsettings set org.gnome.shell.extensions.dash-to-dock icon-size-fixed true
       
       message "apply settings for panel-osd"
       # panel-osd
