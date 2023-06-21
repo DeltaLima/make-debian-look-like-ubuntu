@@ -14,7 +14,7 @@ When the script runs the first time, it is normal that the terminal font looks u
 Just execute setup.sh and show will start:
 
 ```bash
-$ bash setup.sh
+$ bash make-debian-look-like-ubuntu.sh
 ```
 
 You can customize standard packages, which gets installed. Just add an entry to the array defined in `include/packages.inc.sh`
