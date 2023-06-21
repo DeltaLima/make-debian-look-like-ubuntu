@@ -2,8 +2,31 @@
 
 arguments="$@"
 
-# get the $packages Array
-. include/packages.inc.sh
+# define the $packages[] array
+declare -A packages
+
+# the first three array entries are numbered because they have to be ordered
+
+# install base desktop stuff
+packages[0-base]="plymouth ecryptfs-utils curl wget python-is-python3" 
+
+# install desktop base
+packages[1-desktop-base]="ttf-mscorefonts-installer fonts-ubuntu fonts-ubuntu-console fonts-liberation2
+fonts-noto-core fonts-dejavu fonts-hack
+flatpak flatpak-xdg-utils gnome-software-plugin-flatpak network-manager-openvpn-gnome brasero
+dconf-editor thunderbird"
+
+# install gnome base
+packages[2-desktop-gnome]="gnome-shell-extension-manager gnome-tweaks gnome-shell-extensions 
+gnome-shell-extension-desktop-icons-ng gnome-shell-extension-dashtodock
+gnome-shell-extension-appindicator gnome-shell-extension-system-monitor 
+gnome-shell-extension-panel-osd 
+yaru-theme-gnome-shell yaru-theme-gtk yaru-theme-icon yaru-theme-sound
+yaru-theme-unity"
+
+# if you want to add for automation purposes your own packages, just add another array field, like
+#packages[4-my-packages]="shutter solaar steam-installer chromium dosbox gimp vlc audacity keepassxc audacious nextcloud-desktop"
+
 
 # colors for colored output 8)
 RED="\e[31m"
@@ -80,6 +103,10 @@ message "${YELLOW}$package_categories${ENDCOLOR}"
 message ""
 message "If you want, you can run only a few of them, e.g. just '${YELLOW}2-desktop-gnome{ENDCOLOR}':"
 message " ${YELLOW}bash $0 2-desktop-gnome${ENDCOLOR}"
+message ""
+message warn "Some files, like gtk settings get overwritten without asking."
+message warn "If this is not a fresh installation, make a backup first!"
+message ""
 confirm_continue
 
 message "Continue with installation..."
