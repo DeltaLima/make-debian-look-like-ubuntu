@@ -116,7 +116,7 @@ then
   message error "Your user $USER is not in group 'sudo'."
   message error "Add your user to the group with:"
   message error " ${YELLOW}su -c \"/usr/sbin/usermod -aG sudo ${USER}\"${ENDCOLOR}"
-  message error "after that logout and in again or reboot"
+  message error "after that, you need to reboot."
   error
 fi
 message "check sources.list"
