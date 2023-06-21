@@ -137,7 +137,7 @@ do
   case $category in
     0-base)
       message "sed default grub option"
-      sudo sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT=.*$/GRUB_CMDLINE_LINUX_DEFAULT=\"quiet splash mem_sleep_default=deep\"/g' /etc/default/grub || error
+      sudo sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT=.*$/GRUB_CMDLINE_LINUX_DEFAULT=\"quiet splash\"/g' /etc/default/grub || error
       sudo update-grub
       ;;
 
@@ -203,9 +203,6 @@ EOF
       gsettings set org.gnome.shell.extensions.dash-to-dock running-indicator-style 'DOTS'
       gsettings set org.gnome.shell.extensions.dash-to-dock icon-size-fixed true
       
-      message "apply settings for panel-osd"
-      # panel-osd
-      gsettings set org.gnome.shell.extensions.panel-osd x-pos 100.0
       
       message "apply settings for gnome desktop"
       # desktop
