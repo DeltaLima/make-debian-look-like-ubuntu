@@ -104,7 +104,7 @@ message ""
 message "If you want, you can run only a few of them, e.g. just '${YELLOW}2-desktop-gnome{ENDCOLOR}':"
 message " ${YELLOW}bash $0 2-desktop-gnome${ENDCOLOR}"
 message ""
-message warn "Some files, like gtk settings get overwritten without asking."
+message warn "Some files, like gtk settings, get overwritten without asking."
 message warn "If this is not a fresh installation, make a backup first!"
 message ""
 confirm_continue
