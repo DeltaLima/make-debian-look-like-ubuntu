@@ -7,7 +7,7 @@
 # Version: 1.0
 # Usage: bash make-debian-look-like-ubuntu.sh
 # 
-# Copyright 2023 DeltaLima
+# Copyright 2023 DeltaLima (Marcus Hanisch)
 # 
 # Permission is hereby granted, free of charge, to any person obtaining a copy 
 # of this software and associated documentation files (the “Software”), to deal
