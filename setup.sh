@@ -67,14 +67,19 @@ fi
 
 # sort the category list, some of them have to be in order
 package_categories="$(echo $package_categories | xargs -n1 | sort | xargs)"
-
-message "This script makes a fresh Debian-Gnome installation more 'ubuntuish'"
-message "look'n'feel for the current running user ($USER)."
+message "Welcome to ${GREEN}make-debian-look-like-ubuntu${ENDCOLOR}!"
 message ""
-message "Do you want to install these package categories?"
+message "This script makes a fresh Debian-Gnome installation to look like"
+message "an Ubuntu Gnome installation. Settings are applied for the user"
+message "running this script ($USER)".
+message ""
+message "Your user has to be in the 'sudo' group. If not, the script will guide you."
+message ""
+message "The process is divided into following steps:"
 message "${YELLOW}$package_categories${ENDCOLOR}"
-message "You can also specify only a few to install, e.g. '${YELLOW}0-base admin${ENDCOLOR}':"
-message " ${YELLOW}bash $0 0-base 1-desktop-base 2-desktop-gnome${ENDCOLOR}"
+message ""
+message "If you want, you can run only a few of them, e.g. just '${YELLOW}2-desktop-gnome{ENDCOLOR}':"
+message " ${YELLOW}bash $0 2-desktop-gnome${ENDCOLOR}"
 confirm_continue
 
 message "Continue with installation..."
