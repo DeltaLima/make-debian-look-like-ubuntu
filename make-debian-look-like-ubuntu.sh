@@ -217,7 +217,6 @@ EOF
       gnome-extensions enable panel-osd@berend.de.schouwer.gmail.com
       gnome-extensions enable user-theme@gnome-shell-extensions.gcampax.github.com
       gnome-extensions enable dash-to-dock@micxgx.gmail.com
-      gnome-extensions enable system-monitor@paradoxxx.zero.gmail.com 
       gnome-extensions enable ding@rastersoft.com
       
       message "apply settings for dash-to-dock"
