@@ -94,7 +94,7 @@ message "Welcome to ${GREEN}make-debian-look-like-ubuntu${ENDCOLOR}!"
 message ""
 message "This script makes a fresh Debian-Gnome installation to look like"
 message "an Ubuntu Gnome installation. Settings are applied for the user"
-message "running this script ($USER)".
+message "running this script (${YELLOW}${USER}${ENDCOLOR})".
 message ""
 message "Your user has to be in the 'sudo' group."
 message "If not, the script will guide you."
