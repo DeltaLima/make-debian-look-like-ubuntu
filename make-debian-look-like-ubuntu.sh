@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # Title: make-debian-look-like-ubuntu.sh
-# Description: This script performs all necessary steps to make a Debian Gnome desktop look like an Ubuntu desktop. Also it installs flatpak with flathub.org repository enabled and Firefox from there.
+# Description: This script performs all necessary steps to make a Debian Gnome
+# desktop look like an Ubuntu desktop. Also it installs flatpak with 
+# flathub.org repository enabled and Firefox from there.
 # Author: DeltaLima
 # Date: 21.06.2023
 # Version: 1.0
