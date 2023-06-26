@@ -1,6 +1,8 @@
 Origin: https://git.la10cy.net/DeltaLima/Desktop-DeltaLima
 
-** this branch is for my personal system setups. feel free to use it as well, but there are customizations that fit really only my own taste. so best have a look into include/packages.inc.sh! **
+** branch deltalima ** 
+
+this branch is for my personal system setups. feel free to use it as well, but there are customizations that fit really only my own taste. so best have a look into include/packages.inc.sh!
 
 Script for setting up a Debian Gnome Desktop System, I like. Make the system appeareance more "ubuntuish" for the executing user. With firefox flatpak as default browser for the user.
 
