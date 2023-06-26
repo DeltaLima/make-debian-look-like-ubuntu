@@ -47,4 +47,4 @@ shutter solaar steam-installer"
 
 # packages for xubuntuish XFCE
 #packages[desktop-xfce]="gnome-keyring seahorse python3-keyring mugshot elementary-xfce-icon-theme 
-#lightdm-settings lightdm-gtk-greeter-settings gvfs-backends"
+#lightdm-settings lightdm-gtk-greeter-settings gvfs-backends mate-calc"
