@@ -96,9 +96,9 @@ error ()
 
 confirm_continue()
 {
-  message warn "Type '${GREEN}yes${ENDCOLOR}' and hit [ENTER] to continue"
-  read -p "=> " continue
-  if [ "$continue" != "yes" ] 
+  message warn "Type '${GREEN}y${ENDCOLOR}' or '${GREEN}yes${ENDCOLOR}' and hit [ENTER] to continue"
+  read -p "[y/N?] " continue
+  if [ "${continue,,}" != "y" ] && [ "${continue,,}" != "yes" ]
   then
     message error "Installation aborted."
     exit 1
