@@ -2,7 +2,7 @@
 
 Origin: https://git.la10cy.net/DeltaLima/make-debian-look-like-ubuntu
 
-This script performs all necessary steps to make a Debian Gnome desktop look like an Ubuntu desktop.
+This script performs all necessary steps to make a Debian 12 (bookworm) Gnome desktop look like an Ubuntu desktop.
 Also it installs flatpak with flathub.org repository enabled and Firefox from there.
 
 The settings are only applied to the user which is executing this script. The user has to be in the `sudo` group. If not, the script will advise you how to do so.
