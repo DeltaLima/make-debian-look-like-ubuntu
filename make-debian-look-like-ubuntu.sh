@@ -43,8 +43,8 @@ packages[0-base]="plymouth ecryptfs-utils curl wget python-is-python3"
 
 # install desktop base
 packages[1-desktop-base]="ttf-mscorefonts-installer fonts-ubuntu fonts-ubuntu-console fonts-liberation2
-fonts-noto-core fonts-dejavu fonts-hack
-flatpak flatpak-xdg-utils gnome-software-plugin-flatpak network-manager-openvpn-gnome brasero
+fonts-noto-core fonts-noto-color-emoji fonts-dejavu fonts-hack
+flatpak flatpak-xdg-utils gnome-software-plugin-flatpak network-manager-openvpn-gnome
 dconf-editor thunderbird"
 
 # install gnome base
