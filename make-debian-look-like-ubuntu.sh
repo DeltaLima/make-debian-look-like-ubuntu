@@ -39,7 +39,7 @@ declare -A packages
 # the first three array entries are numbered because they have to be ordered
 
 # install base desktop stuff
-packages[0-base]="plymouth ecryptfs-utils curl wget python-is-python3" 
+packages[0-base]="plymouth ecryptfs-utils curl wget python-is-python3 binutils" 
 
 # install desktop base
 packages[1-desktop-base]="ttf-mscorefonts-installer fonts-ubuntu fonts-ubuntu-console fonts-liberation2
