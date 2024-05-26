@@ -54,7 +54,7 @@ gnome-shell-extension-appindicator gnome-shell-extension-system-monitor
 gnome-shell-extension-panel-osd 
 yaru-theme-gnome-shell yaru-theme-gtk yaru-theme-icon yaru-theme-sound
 yaru-theme-unity
-gnome-package-updater package-update-indicator"
+gnome-package-updater gnome-packagekit"
 
 # if you want to add for automation purposes your own packages, just add another array field, like
 #packages[4-my-packages]="shutter solaar steam-installer chromium dosbox gimp vlc audacity keepassxc audacious nextcloud-desktop"
