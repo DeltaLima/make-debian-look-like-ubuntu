@@ -53,7 +53,8 @@ gnome-shell-extension-desktop-icons-ng gnome-shell-extension-dashtodock
 gnome-shell-extension-appindicator gnome-shell-extension-system-monitor 
 gnome-shell-extension-panel-osd 
 yaru-theme-gnome-shell yaru-theme-gtk yaru-theme-icon yaru-theme-sound
-yaru-theme-unity"
+yaru-theme-unity
+gnome-package-updater"
 
 # if you want to add for automation purposes your own packages, just add another array field, like
 #packages[4-my-packages]="shutter solaar steam-installer chromium dosbox gimp vlc audacity keepassxc audacious nextcloud-desktop"
