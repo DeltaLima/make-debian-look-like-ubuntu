@@ -217,11 +217,6 @@ do
       message "set firefox flatpak to default"
       xdg-settings set default-web-browser org.mozilla.firefox.desktop 
       
-      message "linking ~/.mozilla to flatpak env"
-      mkdir -p $HOME/.mozilla
-      mkdir -p $HOME/.var/app/org.mozilla.firefox/
-      ln -s $HOME/.mozilla $HOME/.var/app/org.mozilla.firefox/.mozilla
-      
       message "apply font fix for firefox flatpak"
       mkdir -p $HOME/.var/app/org.mozilla.firefox/config/fontconfig/
       cat << EOF > $HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf
