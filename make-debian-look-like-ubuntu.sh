@@ -51,7 +51,6 @@ dconf-editor thunderbird"
 packages[2-desktop-gnome]="gnome-shell-extension-manager gnome-tweaks gnome-shell-extensions 
 gnome-shell-extension-desktop-icons-ng gnome-shell-extension-dashtodock
 gnome-shell-extension-appindicator gnome-shell-extension-system-monitor 
-gnome-shell-extension-panel-osd 
 yaru-theme-gnome-shell yaru-theme-gtk yaru-theme-icon yaru-theme-sound
 yaru-theme-unity
 gnome-package-updater gnome-packagekit"
@@ -160,16 +159,16 @@ then
   message "backup old sources.list to /etc/apt/sources.list.bak"
   sudo cp /etc/apt/sources.list /etc/apt/sources.list.$(date "+%s")bak
   cat << EOF | sudo tee /etc/apt/sources.list
-deb http://deb.debian.org/debian/ bookworm main contrib non-free non-free-firmware
-deb-src http://deb.debian.org/debian/ bookworm main contrib non-free non-free-firmware
+deb http://deb.debian.org/debian/ trixie main contrib non-free non-free-firmware
+deb-src http://deb.debian.org/debian/ trixie main contrib non-free non-free-firmware
 
-deb http://security.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware
-deb-src http://security.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware
+deb http://security.debian.org/debian-security trixie-security main contrib non-free non-free-firmware
+deb-src http://security.debian.org/debian-security trixie-security main contrib non-free non-free-firmware
 
-# bookworm-updates, to get updates before a point release is made;
+# trixie-updates, to get updates before a point release is made;
 # see https://www.debian.org/doc/manuals/debian-reference/ch02.en.html#_updates_and_backports
-deb http://deb.debian.org/debian/ bookworm-updates main contrib non-free non-free-firmware
-deb-src http://deb.debian.org/debian/ bookworm-updates main contrib non-free non-free-firmware
+deb http://deb.debian.org/debian/ trixie-updates main contrib non-free non-free-firmware
+deb-src http://deb.debian.org/debian/ trixie-updates main contrib non-free non-free-firmware
 EOF
 
   message "apt update"
@@ -265,8 +264,8 @@ EOF
       
       message "apply settings for gnome desktop"
       # desktop
-      gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/gnome/dune-l.svg'
-      gsettings set org.gnome.desktop.background picture-uri-dark 'file:///usr/share/backgrounds/gnome/dune-d.svg'
+      gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/gnome/amber-l.jxl'
+      gsettings set org.gnome.desktop.background picture-uri-dark 'file:///usr/share/backgrounds/gnome/amber-d.jxl'
       gsettings set org.gnome.desktop.background show-desktop-icons true
       gsettings set org.gnome.desktop.background primary-color '#E66100'
       gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
@@ -281,7 +280,12 @@ EOF
       gsettings set org.gnome.desktop.interface cursor-theme 'Yaru'
       gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-dark'
       gsettings set org.gnome.desktop.interface icon-theme 'Yaru-dark'
-      gsettings set org.gnome.shell.extensions.user-theme name 'Yaru-dark'
+
+      # yaru gnome-shell theme is a bit broken actually, system osd network ellapse button glitched
+      # gsettings set org.gnome.shell.extensions.user-theme name 'Yaru-dark'
+
+      # set accent color to orange
+      gsettings set org.gnome.desktop.interface accent-color 'orange'
 
       # gtk-3.0 and gtk-4.0 settings
       message "setting gtk-3.0 and gtk-4.0 default to dark"
