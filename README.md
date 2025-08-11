@@ -20,6 +20,4 @@ Just execute setup.sh and show will start:
 $ bash make-debian-look-like-ubuntu.sh
 ```
 
-You can customize standard packages, which gets installed. Just add an entry to the array defined in `include/packages.inc.sh`
-
 ![Ubuntuish Debian 13 Gnome Desktop](screenshot/screenshot1.png "Ubuntuish Debian 13 Gnome Desktop")
