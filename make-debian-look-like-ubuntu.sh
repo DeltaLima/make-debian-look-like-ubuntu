@@ -241,7 +241,9 @@ EOF
       
       message "enable gnome shell extensions"
       gnome-extensions enable ubuntu-appindicators@ubuntu.com
-      gnome-extensions enable panel-osd@berend.de.schouwer.gmail.com
+      
+      # panel-osd does no longer exist in debian 13
+      #gnome-extensions enable panel-osd@berend.de.schouwer.gmail.com
       gnome-extensions enable user-theme@gnome-shell-extensions.gcampax.github.com
       gnome-extensions enable dash-to-dock@micxgx.gmail.com
       gnome-extensions enable ding@rastersoft.com
