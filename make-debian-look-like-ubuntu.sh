@@ -5,8 +5,8 @@
 # desktop look like an Ubuntu desktop. Also it installs flatpak with 
 # flathub.org repository enabled and Firefox from there.
 # Author: DeltaLima
-# Date: 21.06.2023
-# Version: 1.0
+# Date: 23.08.2025
+# Version: 1.1
 # Usage: bash make-debian-look-like-ubuntu.sh
 # 
 # Copyright 2023 DeltaLima (Marcus Hanisch)
@@ -251,6 +251,9 @@ EOF
       message "apply settings for dash-to-dock"
       # dash-to-dock
       gsettings set org.gnome.shell.extensions.dash-to-dock autohide-in-fullscreen false
+      gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode 'FIXED'
+      gsettings set org.gnome.shell.extensions.dash-to-dock background-color '#0c0c0c'
+      gsettings set org.gnome.shell.extensions.dash-to-dock custom-background-color true
       gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity 0.64000000000000001
       gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'focus-or-previews'
       gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-shrink true
@@ -259,7 +262,6 @@ EOF
       gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'LEFT'
       gsettings set org.gnome.shell.extensions.dash-to-dock extend-height true
       gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
-      gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode 'FIXED'
       gsettings set org.gnome.shell.extensions.dash-to-dock running-indicator-style 'DOTS'
       gsettings set org.gnome.shell.extensions.dash-to-dock icon-size-fixed true
       
